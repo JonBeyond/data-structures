@@ -1,26 +1,27 @@
 var Stack = function() {
 	var anInstance = {};
-	anInstance.size = 0;
+	anInstance.currentSize = 0;
 	anInstance.storage = {}; // store the storage as a property for access
-	anInstance = Object.assign(anInstance, stackMethods); //this will add a reference to stackMethods
+	Object.assign(anInstance, stackMethods); //this will add a reference to stackMethods
 	return anInstance;
 };
 
 var stackMethods = {
 	pop: function (){
-		if (this.size > 0){
-			let element = this.storage[this.size];
-			delete this.storage[this.size];
+		if (this.currentSize > 0){
+			this.currentSize--;
+			let element = this.storage[this.currentSize];
+			delete this.storage[this.currentSize];
 			return element;
 		}
 	},
 	push: function (val){
 		//add to the end
-		this.storage[this.size] = val;
-		this.size++;
+		this.storage[this.currentSize] = val;
+		this.currentSize++;
 	},
 	size: function(){
-		return this.size; //adjust size
+		return this.currentSize; //adjust size
 	}
 
 };
