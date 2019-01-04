@@ -1,9 +1,4 @@
 var Queue = function() {
-  //this is similar to stack but instead of last in last out,
-  //    it is first in first out.
-  // in other words: items are added into the beginning, and
-  //   removed from the end
-  // we should add items at the end, and remove them from the beginning
 
   var someInstance = {};
   var size = 0;
@@ -13,15 +8,23 @@ var Queue = function() {
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
-    storage[size] = value;
-    size++;
+      let tempStorage = storage;
+      storage = {}; //reinitialize and repopulate with one less index as the key
+      for (let i = 0; i < Object.keys(tempStorage).length+1; i++){
+        if (i === 0) {
+          storage[i] = value;
+          size++;
+        } else {
+          storage[i] = tempStorage[i-1];
+        }
+      }    
   };
 
   someInstance.dequeue = function() {
-    if (size > 0){ //only if we have an item in the queue
+    if (size > 0){
       size --;
-      let element = storage[0];
-      delete storage[0];
+      let element = storage[size];
+      delete storage[size];
       return element;
     }
   };
