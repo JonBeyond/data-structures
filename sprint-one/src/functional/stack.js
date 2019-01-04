@@ -15,7 +15,7 @@ var Stack = function() {
       size--; //size will always be 1 greater than the index
       let element = storage[size];
       delete storage[size];
-     return element;
+      return element;
     }
   };
 
