@@ -3,7 +3,11 @@ var Queue = function() {
 	// an object
 	// a property of currentSize,
 	// a property of storage
-
+	var newQueue = {};
+	newQueue.currentSize = 0;
+	newQueue.storage = {};
+	Object.assign(newQueue, queueMethods);
+	return newQueue;
 };
 
 var queueMethods = {
