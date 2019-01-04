@@ -1,23 +1,27 @@
 var Stack = function() {
   var someInstance = {};
-
+  var size = 0;
   // Use an object with numeric keys to store values
   var storage = {};
 
   // Implement the methods below
   someInstance.push = function(value) {
-    storage[someInstance.size] = value;
-    someInstance.size();
+    storage[size] = value;
+    size++;
   };
 
   someInstance.pop = function() {
-    let element = storage[someInstance.size]
-    someInstance.size();
-    return element;
+    if (size > 0) {//dont want to try to remove if we cannot!
+      size--; //size will always be 1 greater than the index
+      let element = storage[size];
+      delete storage[size];
+     return element;
+    }
   };
 
   someInstance.size = function() {
-    return Object.keys(storage).length;
+    if (size < 0) size = 0;
+    return size;
   };
 
   return someInstance;
