@@ -1,8 +1,25 @@
 var Queue = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+	//we need a few variables:
+	// an object
+	// a property of currentSize,
+	// a property of storage
+
 };
 
-var queueMethods = {};
+var queueMethods = {
+	//we need three functions:
+	// queue, to add items to the beginning
+	// dequeue, to add items to the ending
+	// size: to return the current size
+	dequeue: function(){
+
+	},
+	enqueue: function(){
+
+	},
+	size: function(){
+
+	}
+};
 
 
