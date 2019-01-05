@@ -1,8 +1,8 @@
 var Stack = function() {
 	var anInstance = {};
 	anInstance.currentSize = 0;
-	anInstance.storage = {}; // store the storage as a property for access
-	Object.assign(anInstance, stackMethods); //this will add a reference to stackMethods
+	anInstance.storage = {};
+	Object.assign(anInstance, stackMethods);
 	return anInstance;
 };
 
