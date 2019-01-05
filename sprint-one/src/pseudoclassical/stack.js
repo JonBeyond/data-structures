@@ -17,5 +17,3 @@ Stack.prototype.push = function(val){
 Stack.prototype.size = function(){
 	return this.currentSize;
 }
-
-var hello = new Stack();
