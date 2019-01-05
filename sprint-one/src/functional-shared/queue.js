@@ -11,19 +11,30 @@ var Queue = function() {
 };
 
 var queueMethods = {
-	//we need three functions:
-	// queue, to add items to the beginning
-	// dequeue, to add items to the ending
-	// size: to return the current size
 	dequeue: function(){
-
+		if (this.currentSize > 0) {
+			this.currentSize--;
+			let element = this.storage[this.currentSize];
+			delete this.storage[this.currentSize];
+			return element;
+		}
 	},
-	enqueue: function(){
+	enqueue: function(val){
+		console.log("adding: "+val);
+		let tempStorage = this.storage;
+		this.storage = {};
+		for (let i = 0; i < Object.keys(tempStorage).length+1; i++){
+			if (i === 0) {
+				this.storage[i] = val;
+			} else {
+				this.storage[i] = tempStorage[i-1]
+			}
+		}
+		this.currentSize++;
+		console.log("storage: "+this.storage[0]);
 
 	},
 	size: function(){
-
+		return this.currentSize;
 	}
 };
-
-
