@@ -57,4 +57,5 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  removeHead and addtoTail are constant whereas list.contains is a linear function
  */
