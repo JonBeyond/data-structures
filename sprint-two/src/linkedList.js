@@ -28,6 +28,22 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
+    if (list.head.value === target) {
+      return true;
+    } else if (list.head === list.tail) {
+      return false;
+    } else {
+      //store the current head
+      //we would increment the head (somehow TBD)
+      //we would call contains with the new head
+      //  if (contains (newhead))
+      //     -> set head equal to the original head
+      //     -> return true;
+      //  else 
+      //      set the head equal the origin
+      //        return false
+      
+    }
   };
 
   return list;
