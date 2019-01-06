@@ -15,12 +15,16 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    
-    if () //the below is true if head !== tail
-    let element = list.head.value;
-    list.head = list.head.next;
-    return element;
-
+    if (list.head === list.tail) {
+      let element = list.head.value;
+      list.head = null;
+      list.tail = null;
+      return element;
+    } else {
+      let element = list.head.value;
+      list.head = list.head.next;
+      return element;
+    }
   };
 
   list.contains = function(target) {
