@@ -33,17 +33,14 @@ var LinkedList = function() {
     } else if (list.head === list.tail) {
       return false;
     } else {
-      //store the current head
-      //we would increment the head (somehow TBD)
-      //we would call contains with the new head
-      //  if (contains (newhead))
-      //     -> set head equal to the original head
-      //     -> return true;
-      //  else 
-      //      set the head equal the origin
-      //        return false
-      
+      let previousHead = list.head;
+      list.head = list.head.next;
+      if (list.contains(target)) {
+        list.head = previousHead;
+        return true;
+      }      
     }
+    return false;
   };
 
   return list;
