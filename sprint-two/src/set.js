@@ -27,12 +27,7 @@ setPrototype.remove = function(item) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * add: C(1)
+ * remove: C(1)
+ * contains: C(1), because hash tables rebalance themselves automatically
  */
-
-let aSet = Set();
-aSet.add('hello');
-//console.log(JSON.stringify(aSet));
-aSet.remove('hello');
-aSet.add('flipper');
-console.log("does it have? : " + aSet.contains('flipper'));
-console.log(JSON.stringify(aSet));
