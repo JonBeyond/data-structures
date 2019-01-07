@@ -1,12 +1,12 @@
 var Tree = function(value) {
   
-  var newTree = Object.create(treeMethods);
-  //var newTree = {};
+  //var newTree = Object.create(treeMethods);
+  var newTree = {};
   newTree.value = value;
 
   newTree.children = [];
   
-  //Object.assign(newTree, treeMethods);
+  Object.assign(newTree, treeMethods);
   
   return newTree;
 /*
@@ -22,7 +22,7 @@ newTree.addChild = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  var childTree = Tree(value); //why does let not work?
+  let childTree = Tree(value); //why does let not work?
   this.children.push(childTree);
 };
 

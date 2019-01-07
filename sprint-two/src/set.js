@@ -15,9 +15,14 @@ setPrototype.add = function(item) {
 };
 
 setPrototype.contains = function(item) {
+  if(this.storage.hasOwnProperty(item)) {
+    return true;
+  }
+  return false;
 };
 
 setPrototype.remove = function(item) {
+  delete this.storage[item];
 };
 
 /*
@@ -26,4 +31,8 @@ setPrototype.remove = function(item) {
 
 let aSet = Set();
 aSet.add('hello');
+//console.log(JSON.stringify(aSet));
+aSet.remove('hello');
+aSet.add('flipper');
+console.log("does it have? : " + aSet.contains('flipper'));
 console.log(JSON.stringify(aSet));
