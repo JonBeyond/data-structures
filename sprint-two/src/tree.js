@@ -1,11 +1,12 @@
 var Tree = function(value) {
-  var newTree = {};
+  
+  var newTree = Object.create(treeMethods);
+  //var newTree = {};
   newTree.value = value;
 
-  // your code here
   newTree.children = [];
   
-  Object.assign(newTree, treeMethods);
+  //Object.assign(newTree, treeMethods);
   
   return newTree;
 /*
