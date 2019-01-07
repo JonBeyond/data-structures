@@ -13,6 +13,10 @@ Graph.prototype.addNode = function(node) {
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
+  if (this.storage.hasOwnProperty(node)) {
+    return true;
+  }
+  return false;
 };
 
 // Removes a node from the graph.
