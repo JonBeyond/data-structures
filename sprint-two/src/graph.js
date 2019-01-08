@@ -44,8 +44,8 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
-  this.storage[fromNode].push(toNode);
-  this.storage[toNode].push(fromNode);
+  this.storage[fromNode].push(Number(toNode));
+  this.storage[toNode].push(Number(fromNode));
 };
 
 // Remove an edge between any two specified (by value) nodes.
@@ -61,10 +61,32 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  for (let key in this.storage) {
+    //let boundfunc = cb.bind(this);
+    //boundfunc(key);
+    //the above also works
+    
+    cb.call(this, key);
+  }
+
 };
+
 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+// var graph = new Graph();
+
+// var connectToFive = function(item) {
+//   graph.addEdge(item, 5);
+// };
+// graph.addNode(5);
+// graph.addNode(2);
+// graph.addNode(1);
+// graph.addNode(3);
+// graph.forEachNode(connectToFive);
+// console.log(JSON.stringify(graph));
+// console.log(graph.hasEdge(2, 5) === true);
 
 
