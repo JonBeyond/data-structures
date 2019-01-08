@@ -10,6 +10,7 @@ var Graph = function() {
 Graph.prototype.addNode = function(node) {
   this.storage[node] = [];
 };
+//constant
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(node) {
@@ -18,6 +19,7 @@ Graph.prototype.contains = function(node) {
   }
   return false;
 };
+//constant
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
@@ -26,6 +28,7 @@ Graph.prototype.removeNode = function(node) {
   }
   delete this.storage[node];
 };
+//linear
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
 Graph.prototype.hasEdge = function(fromNode, toNode) {
@@ -39,13 +42,17 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
     return true;
   }
   return false;
-  
+  //linear or constant? relative to size of the storage container, 
+//constant
+
+
 };
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
   this.storage[fromNode].push(Number(toNode));
   this.storage[toNode].push(Number(fromNode));
+  //constant
 };
 
 // Remove an edge between any two specified (by value) nodes.
@@ -56,7 +63,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
     this.storage[fromNode].splice(removeFromNode, 1);
     this.storage[toNode].splice(removeToNode, 1);
   }
-
+  //constant
 };
 
 // Pass in a callback which will be executed on each node of the graph.
@@ -70,10 +77,11 @@ Graph.prototype.forEachNode = function(cb) {
   }
 
 };
-
+//linear
 
 /*
  * Complexity: What is the time complexity of the above functions?
+//answered within each method;
  */
 
 // var graph = new Graph();
