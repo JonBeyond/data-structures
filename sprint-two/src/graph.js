@@ -61,12 +61,12 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
-  for (let key in this.storage) {
+  for (let node in this.storage) {
+    
+    cb.call(this, node);
     //let boundfunc = cb.bind(this);
     //boundfunc(key);
     //the above also works
-    
-    cb.call(this, key);
   }
 
 };
@@ -89,4 +89,4 @@ Graph.prototype.forEachNode = function(cb) {
 // console.log(JSON.stringify(graph));
 // console.log(graph.hasEdge(2, 5) === true);
 
-
+["1", "2"]
