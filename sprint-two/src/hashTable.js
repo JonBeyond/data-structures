@@ -7,7 +7,15 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  this._storage[index] = [];
+  if (!this._storage[index]) {
+    this._storage[index] = [];
+  }
+  for (let item of this._storage[index]) {
+    if (item[0] === k) {
+        item[1] = v;
+        return;
+    }
+  }
   this._storage[index].push([k, v]);
   //create a tuple and add it to an index in the 
 };
