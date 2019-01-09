@@ -40,7 +40,10 @@ treeMethods.contains = function(target) {
 treeMethods.traverse = function(cb){
   //iterates through every element, performing cb(value)
   var traverser = function(node) {
-    cb(node.value);
+    if(node.value !== undefined){
+      cb(node.value);
+    }
+
     for (let child of node.children) {
       traverser(child);
     }
