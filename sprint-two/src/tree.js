@@ -37,6 +37,17 @@ treeMethods.contains = function(target) {
   return false;
 };
 
+treeMethods.traverse = function(cb){
+  //iterates through every element, performing cb(value)
+  var traverser = function(node) {
+    cb(node.value);
+    for (let child of node.children) {
+      traverser(child);
+    }
+  }
+  traverser(this);
+}
+
 treeMethods.removeFromParent = function(target) {
   for (let i = 0; i < this.children.length; i++) {
     if (this.children[i].contains(target)) {
