@@ -59,7 +59,22 @@ binaryTreeMethods.contains = function(target) {
 }
   
 binaryTreeMethods.depthFirstLog = function(cb) {
+  // cb(this.value);
+  // if (this.left) {
+  //   this.depthFirstLog
+  // }
+  var depth = function(cb, node) {
+    cb(node.value);
+    if (node.left) {
+      depth(cb, node.left);
+    }
+    if (node.right) {
+      depth(cb, node.right);
+    }
+  }
 
+  depth(cb, this);
+  
 }
 
   //constructor function for a node
