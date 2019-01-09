@@ -1,16 +1,13 @@
 var Tree = function(value) {
-  
-  //var newTree = Object.create(treeMethods);
-  var newTree = {};
-  newTree.value = value;
-
-  newTree.children = [];
-  
-  Object.assign(newTree, treeMethods);
-  
-  return newTree;
+  //var treeRoot = Object.create(treeMethods);
+  var treeRoot = {};
+  treeRoot.value = value;
+  treeRoot.children = [];
+  treeRoot.parent = null;
+  Object.assign(treeRoot, treeMethods);
+  return treeRoot;
 /*
-newTree.addChild = function(value) {
+treeRoot.addChild = function(value) {
   let childTree = Tree(value); //why does let not work?
   this.children.push(childTree);
 };
@@ -23,6 +20,7 @@ var treeMethods = {};
 
 treeMethods.addChild = function(value) {
   let childTree = Tree(value); //why does let not work?
+  childTree.parent = this;
   this.children.push(childTree);
 };
 
