@@ -11,18 +11,35 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  this.storage[item] = item;
+  //if object:
+  if (typeof item === "object") {
+    this.storage[JSON.stringify(item)] = item;
+  } else {
+    this.storage[item] = item;
+  }
+
 };
 
 setPrototype.contains = function(item) {
-  if(this.storage.hasOwnProperty(item)) {
-    return true;
+  if (typeof item === 'object'){
+    if (this.storage.hasOwnProperty(JSON.stringify(item))){
+      return true;
+    }
+  } else {
+    if(this.storage.hasOwnProperty(item)) {
+      return true;
+    }
   }
   return false;
 };
 
 setPrototype.remove = function(item) {
-  delete this.storage[item];
+  if (typeof item === 'object'){
+    delete this.storage[JSON.stringify(item)];
+  } else {
+    delete this.storage[item];
+  }
+
 };
 
 /*
